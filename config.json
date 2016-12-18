@@ -1,0 +1,19 @@
+{
+    "twitterConfig" : {
+        "consumer_secret": "F2TMkpXNiqhUsaDVyKq4iOafts3fHePlXt5ZyT5zPfEd81gt2X",
+        "consumer_key": "TCYS99o3RZBX8S7eUEetKndu8",
+        "access_token_key": "809095353710559232-o0uMmjegpXnxgnzodjvc4PpVJKx7wsh",
+        "access_token_secret": "u4mRfYCANPtpy7wCsELHzy6jBi4PgGQKtpBMX0QJnxXOh"
+    },
+    "hueConfig": {
+        "username": "EV5QGxYEadGa4fOAM9C1oM9JkHu-yNQI9U4nHPWS",
+        "hostname": "192.168.1.11",
+        "lights": [
+            2,
+            14
+        ]
+    },
+    "reply": false,
+    "transitionTime": 5000,
+    "transitionTimeDisco": 1000
+}
