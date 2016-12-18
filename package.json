@@ -18,7 +18,6 @@
     "fancy-log": "^1.2.0",
     "jsonfile": "^2.4.0",
     "node-hue-api": "^2.3.0",
-    "pokemon": "^1.1.0",
     "twitter": "^1.7.0"
   },
   "devDependencies": {
