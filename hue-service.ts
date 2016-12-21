@@ -9,7 +9,6 @@ let HueApi = hue.HueApi,
 let config = jsonfile.readFileSync('./config.json');
 let hueAPI = new HueApi(config.hueConfig.hostname, config.hueConfig.username);
 
-let reply = config.reply;
 let disco: Boolean = false;
 
 export interface Color {
