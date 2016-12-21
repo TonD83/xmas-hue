@@ -1,10 +1,4 @@
 {
-    "twitterConfig" : {
-        "consumer_secret": "",
-        "consumer_key": "",
-        "access_token_key": "",
-        "access_token_secret": ""
-    },
     "hueConfig": {
         "username": "",
         "hostname": "",
