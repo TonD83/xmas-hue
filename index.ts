@@ -128,5 +128,3 @@ function validateApiKey(key: string) {
     }
     return false;
 }
-
-hueService.getLightStatus();
