@@ -1,0 +1,23 @@
+{
+    "twitterConfig" : {
+        "consumer_secret": "",
+        "consumer_key": "",
+        "access_token_key": "",
+        "access_token_secret": ""
+    },
+    "hueConfig": {
+        "username": "",
+        "hostname": "",
+        "lights": [
+            2,
+            14
+        ]
+    },
+    "reply": false,
+    "transitionTime": 5000,
+    "transitionTimeDisco": 1000,
+    "apiKeys": [
+        "",
+        ""
+    ]
+}
