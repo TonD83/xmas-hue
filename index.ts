@@ -57,12 +57,13 @@ app.post('/api/v1/tree', (req, res) => {
     if (!headers.apikey || !validateApiKey(headers.apikey)) return res.status(401).send({ requestStatus: 'GTFO!' });
     if (!item.colors) return res.status(400).send({ requestStatus: 'colors is required' });
     if (item.colors.length == 0) return res.status(400).send({ requestStatus: 'you should specify at least 1 color' });
-    if (item.colors.length > 10) {
-        item.colors = item.colors.slice(0,9);
-    }
 
     let colors = item.colors;
     let disco = item.disco;
+
+    if (disco && item.colors.length > 10) {
+        item.colors = item.colors.slice(0,9);
+    }
 
     let delayTime = disco ? config.transitionTimeDisco : config.transitionTime;
 
