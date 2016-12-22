@@ -7,6 +7,7 @@ import * as colorconvert from 'color-convert';
 import * as jsonfile from 'jsonfile';
 import * as kue from 'kue';
 import * as rateLimit from 'express-rate-limit';
+import * as request from 'request';
 
 let queue = kue.createQueue();
 let app = express();
@@ -24,22 +25,29 @@ queue.on('error', (err) => {
 
 /* Express setup */
 let apiLimiter = new rateLimit({
-  windowMs: 1*60*60*1000, // 1 hour
-  max: 6,
-  delayMs: 0 // disabled 
+    windowMs: 1 * 60 * 60 * 1000, // 1 hour
+    max: 6,
+    delayMs: 0 // disabled 
 });
 app.use('/api/', apiLimiter);
 
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+app.get('/videofeed', function (req, res) {
+    log('GET /videofeed from address: ' + req.connection.remoteAddress);
+
+    let url = config.webcamConfig.url + Math.floor(new Date().getTime()/100);
+    request.get(url).pipe(res);
 });
 
 app.get('/api/v1/tree', (req, res) => {
-    log('GET Request from address: ' + req.connection.remoteAddress);
+    log('GET /tree from address: ' + req.connection.remoteAddress);
 
     let item = req.headers;
     if (!item.apikey || !validateApiKey(item.apikey)) return res.status(401).send({ requestStatus: 'Unauthorized, please obtain a valid API key.' });
@@ -50,7 +58,7 @@ app.get('/api/v1/tree', (req, res) => {
 });
 
 app.post('/api/v1/tree', (req, res) => {
-    log('POST Request from address: ' + req.connection.remoteAddress);
+    log('POST /tree from address: ' + req.connection.remoteAddress);
 
     let item = req.body;
     let headers = req.headers;
@@ -62,7 +70,7 @@ app.post('/api/v1/tree', (req, res) => {
     let disco = item.disco;
 
     if (disco && item.colors.length > 10) {
-        item.colors = item.colors.slice(0,9);
+        item.colors = item.colors.slice(0, 9);
     }
 
     let delayTime = disco ? config.transitionTimeDisco : config.transitionTime;

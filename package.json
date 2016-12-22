@@ -19,7 +19,8 @@
     "fancy-log": "^1.2.0",
     "jsonfile": "^2.4.0",
     "kue": "^0.11.5",
-    "node-hue-api": "^2.3.0"
+    "node-hue-api": "^2.3.0",
+    "request": "^2.79.0"
   },
   "devDependencies": {
     "@types/node": "^6.0.52",

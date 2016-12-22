@@ -12,5 +12,8 @@
     "apiKeys": [
         "",
         ""
-    ]
+    ],
+    "webcamConfig": {
+        "url": "http://192.168.1.1:88/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=USER&pwd=PASSWORD!&t="
+    }
 }
