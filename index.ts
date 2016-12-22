@@ -42,7 +42,7 @@ app.get('/api/v1/tree', (req, res) => {
     log('GET Request from address: ' + req.connection.remoteAddress);
 
     let item = req.headers;
-    if (!item.apikey || !validateApiKey(item.apikey)) return res.status(401).send({ requestStatus: 'GTFO dear Cindy!' });
+    if (!item.apikey || !validateApiKey(item.apikey)) return res.status(401).send({ requestStatus: 'Unauthorized, please obtain a valid API key.' });
 
     getTreeStatus().then(treeStatusResponse => {
         res.send(treeStatusResponse);
